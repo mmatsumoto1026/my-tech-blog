@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&display=swap');
+
+:root {
+    --bg-color: #fdfdfd;
+    --text-color: #4a4a4a;
+    --header-bg: #fff;
+    --header-text: #333;
+    --nav-text: #666;
+    --nav-hover: #000;
+    --article-bg: #fff;
+    --article-shadow: rgba(0,0,0,0.05);
+    --date-text: #888;
+    --footer-text: #888;
+    --border-color: #eee;
+}
+
+body.dark-mode {
+    --bg-color: #1a1a1a;
+    --text-color: #ccc;
+    --header-bg: #222;
+    --header-text: #eee;
+    --nav-text: #aaa;
+    --nav-hover: #fff;
+    --article-bg: #282828;
+    --article-shadow: rgba(0,0,0,0.2);
+    --date-text: #666;
+    --footer-text: #666;
+    --border-color: #444;
+}
+
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    line-height: 1.8;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    background-image: url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%239C92AC" fill-opacity="0.04"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+header {
+    background: var(--header-bg);
+    padding: 2rem 0;
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+header h1 {
+    margin: 0;
+    font-weight: 300;
+    font-size: 3rem;
+    color: var(--header-text);
+    transition: color 0.3s ease;
+}
+
+nav ul {
+    padding: 0;
+    list-style: none;
+    margin-top: 1rem;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--nav-text);
+    font-weight: 300;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--nav-hover);
+}
+
+main {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+article {
+    background: var(--article-bg);
+    padding: 40px;
+    margin-bottom: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px var(--article-shadow);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+article h2 {
+    margin-top: 0;
+    font-weight: 400;
+    color: var(--header-text);
+    transition: color 0.3s ease;
+}
+
+.date {
+    color: var(--date-text);
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    transition: color 0.3s ease;
+}
+
+footer {
+    text-align: center;
+    padding: 30px 0;
+    color: var(--footer-text);
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.theme-switch-wrapper {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+}
+
+.theme-switch {
+    display: inline-block;
+    height: 34px;
+    position: relative;
+    width: 60px;
+}
+
+.theme-switch input {
+    display:none;
+}
+
+.slider {
+    background-color: #ccc;
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "☀️";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+
+input:checked + .slider {
+    background-color: #2c3e50;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+    content: "🌙";
+}
+
+.slider.round {
+    border-radius: 34px;
+}
