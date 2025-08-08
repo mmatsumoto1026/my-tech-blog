@@ -23,3 +23,29 @@ function switchTheme(e) {
 }
 
 toggleSwitch.addEventListener('change', switchTheme, false);
+
+document.addEventListener('DOMContentLoaded', () => {
+    const historyList = document.querySelector('#history-list ul');
+    const articles = document.querySelectorAll('main article');
+
+    articles.forEach(article => {
+        const title = article.querySelector('h2').textContent;
+        const id = article.id;
+
+        const listItem = document.createElement('li');
+        const link = document.createElement('a');
+
+        link.textContent = title;
+        link.href = `#${id}`;
+
+        listItem.appendChild(link);
+        historyList.appendChild(listItem);
+
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            document.querySelector(link.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+});

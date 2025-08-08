@@ -77,10 +77,45 @@ nav a:hover {
     color: var(--nav-hover);
 }
 
-main {
-    max-width: 800px;
+.container {
+    display: flex;
+    max-width: 1200px;
     margin: 40px auto;
     padding: 0 20px;
+}
+
+#history-list {
+    width: 200px;
+    margin-right: 40px;
+}
+
+#history-list h3 {
+    font-weight: 400;
+    color: var(--header-text);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+    margin-top: 0;
+}
+
+#history-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+#history-list ul li a {
+    text-decoration: none;
+    color: var(--nav-text);
+    display: block;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+}
+
+#history-list ul li a:hover {
+    color: var(--nav-hover);
+}
+
+main {
+    flex: 1;
 }
 
 article {
